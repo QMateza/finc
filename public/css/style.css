@@ -9,13 +9,13 @@
   --pure-white: #fff;
 
   /* FONT SIZE */
-  --text-h1: 8rem;
-  --text-h2: 5.7rem;
+  --text-h1: clamp(3.4rem, 8vw, 8rem);
+  --text-h2: clamp(2.6rem, 5vw, 5.7rem);
   --text-h3: 4rem;
   --text-h4: 2.8rem;
   --text-h5: 2rem;
   --text-p: 1.6rem;
-  --text-h5: 0.9rem;
+  --text-sm: 1.2rem;
 
   /* FONT FAMILY */
   --font-family-hammer: "Hammersmith One", sans-serif;
@@ -25,8 +25,10 @@
   --font-weight-bold: 700;
   --font-weight-reg: 400;
 
-  /* LINE SPACING */
-  --line-spacing: 10rem;
+  /* LINE HEIGHT */
+  --line-height-lrg: 10rem;
+  --line-height-med: 5rem;
+  --line-height-sml: 3rem;
 
   /* SECTION SPACING */
   --section-spacing: 10rem;
@@ -88,6 +90,11 @@ body {
 }
 
 /* HEADER */
+header {
+  position: sticky;
+  z-index: 100;
+  margin-bottom: var(--section-spacing);
+}
 header .container {
   display: flex;
   justify-content: space-between;
@@ -108,6 +115,7 @@ header .container {
 .logo svg {
   width: 100%;
   height: 100%;
+  fill: var(--white);
 }
 
 .nav-links {
@@ -116,6 +124,7 @@ header .container {
   position: absolute;
   top: 8vh;
   left: 0;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -147,4 +156,66 @@ header .container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.menu svg {
+  fill: var(--white);
+}
+
+/* HERO SECTION */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100dvh;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+  background: linear-gradient(180deg, #00e5e8 0%, #5b85aa 100%);
+}
+
+.hero-section picture,
+.hero-section-text img {
+  display: inline-block;
+  position: relative;
+  bottom: 2.2rem;
+  z-index: 10;
+}
+
+.hero-section-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100dvh;
+  padding-bottom: 4rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  text-align: center;
+  color: var(--white);
+}
+
+.hero-section-text .small-text {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-section-text h1,
+.hero-section-text p {
+  position: relative;
+  z-index: 10;
+  margin-top: 1rem;
+}
+.hero-section-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  filter: opacity(100%);
+  z-index: 5;
+  background: linear-gradient(180deg, #00000000 0%, #000 100%);
 }
