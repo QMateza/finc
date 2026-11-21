@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 
 const app = express();
-app.use("/img", express.static(path.join(import.meta.dirname, "img")));
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", path.join(import.meta.dirname, "views"));
 
