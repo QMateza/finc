@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  /* COLORS */
+  --primary-color: #00e5e8ff;
+  --cta: #af3e4dff;
+  --jet-black: #292f36ff;
+  --white: #fafafa;
+  --pure-white: #fff;
+
+  /* FONT SIZE */
+  --text-h1: 8rem;
+  --text-h2: 5.7rem;
+  --text-h3: 4rem;
+  --text-h4: 2.8rem;
+  --text-h5: 2rem;
+  --text-p: 1.6rem;
+  --text-h5: 0.9rem;
+
+  /* FONT FAMILY */
+  --font-family-hammer: "Hammersmith One", sans-serif;
+  --font-family-inter: "Inter", sans-serif;
+
+  /* FONT WEIGHT */
+  --font-weight-bold: 700;
+  --font-weight-reg: 400;
+
+  /* LINE SPACING */
+  --line-spacing: 10rem;
+
+  /* SECTION SPACING */
+  --section-spacing: 10rem;
+}
+
+/* ------------------ GLOBAL ------------------ */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-family-hammer);
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+h2 {
+  font-size: var(--text-h2);
+}
+h3 {
+  font-size: var(--text-h3);
+}
+h4 {
+  font-size: var(--text-h4);
+}
+h5 {
+  font-size: var(--text-h5);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* BODY */
+body {
+  font-family: var(--font-family-inter);
+  font-size: var(--text-p);
+  line-height: var(--line-spacing);
+  color: var(--jet-black);
+}
