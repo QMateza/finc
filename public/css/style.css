@@ -467,3 +467,44 @@ header .container {
   align-self: flex-end;
   color: var(--white);
 }
+
+/* SOCIAL3 */
+.social3 {
+  margin-bottom: var(--section-spacing);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.social3-container {
+  display: flex;
+  padding-right: 5rem;
+  gap: 5rem;
+}
+
+.social3-item {
+  display: flex;
+  gap: 5rem;
+  padding-right: 5rem;
+}
+
+.social3-item img {
+  width: 15vw;
+}
+
+.spin-left {
+  animation: 20s infinite spin-left linear;
+}
+
+.spin-right {
+  animation: spin-left 20s linear infinite reverse;
+}
+
+@keyframes spin-left {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
