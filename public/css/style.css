@@ -593,6 +593,55 @@ header .container {
   margin-bottom: 1rem;
 }
 
+/* LAST */
+.last {
+  margin-bottom: var(--section-spacing);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.last-content {
+  margin-bottom: 5rem;
+}
+
+.last-content h2,
+.last-content p,
+.last-content video {
+  margin-bottom: 2rem;
+}
+
+.last-content video {
+  width: 100%;
+}
+
+.last-form h2 {
+  margin-bottom: 2rem;
+}
+
+.last-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.last-form label {
+  margin-bottom: 1rem;
+}
+
+.last-form input,
+.last-form select,
+.last-form textarea {
+  padding: 1rem;
+  font-size: var(--text-p);
+  font-family: var(--font-family-inter);
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 5px;
+}
+
+.last-form button {
+  border: none;
+}
+
 @keyframes spin-left {
   0% {
     transform: translate(0);
