@@ -500,6 +500,71 @@ header .container {
   animation: spin-left 20s linear infinite reverse;
 }
 
+/* BENEFITS */
+.benefits {
+  position: relative;
+  margin-bottom: var(--section-spacing);
+  height: 70rem;
+}
+
+.benefits picture,
+.benefits img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+.benefits picture::before,
+.benefits img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: inherit;
+  background: linear-gradient(180deg, #00000000 0%, #000 100%);
+}
+
+.benefits-container {
+  padding: 5rem 2rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--white);
+}
+
+.benefits-container h2,
+.benefits-container p {
+  margin-bottom: 2rem;
+}
+
+.benefits-container p {
+  position: relative;
+  padding-left: 30px;
+}
+
+.benefits-container p::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin-right: 20px;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+}
+
 @keyframes spin-left {
   0% {
     transform: translate(0);
