@@ -565,6 +565,34 @@ header .container {
   border-radius: 50px;
 }
 
+/* STEPS */
+.steps {
+  margin-bottom: var(--section-spacing);
+}
+.steps .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  gap: 4rem;
+}
+
+.steps-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+}
+
+.steps-item span {
+  font-size: 8rem;
+  font-family: var(--font-family-hammer);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  filter: opacity(40%);
+}
+
+.steps-item h3 {
+  margin-bottom: 1rem;
+}
+
 @keyframes spin-left {
   0% {
     transform: translate(0);
