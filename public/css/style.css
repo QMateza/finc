@@ -11,9 +11,7 @@
   /* FONT SIZE */
   --text-h1: clamp(3.4rem, 8vw, 8rem);
   --text-h2: clamp(2.6rem, 5vw, 5.7rem);
-  --text-h3: clamp(2rem, 4vw, 4rem);
-  --text-h4: 2.8rem;
-  --text-h5: 2rem;
+  --text-h3: clamp(1.8rem, 2.2vw, 4rem);
   --text-p: 1.6rem;
   --text-sm: 1.2rem;
 
@@ -76,7 +74,7 @@ a {
 }
 
 .container {
-  width: 90%;
+  width: clamp(300px, 90vw, 1700px);
   margin: 0 auto;
 }
 
@@ -102,8 +100,15 @@ a {
 
 /* HTML */
 
-html {
+html,
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-x: hidden;
   font-size: 62.5%;
+  line-height: var(--line-height-normal);
 }
 
 /* BODY */
@@ -118,7 +123,6 @@ body {
 header {
   position: sticky;
   z-index: 100;
-  margin-bottom: var(--section-spacing);
 }
 header .container {
   display: flex;
@@ -188,6 +192,10 @@ header .container {
 }
 
 /* HERO SECTION */
+.hero-section {
+  margin-bottom: var(--section-spacing);
+  height: 92vh;
+}
 .bg {
   position: absolute;
   width: 100%;
@@ -211,6 +219,7 @@ header .container {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
   height: 100dvh;
   padding-bottom: 4rem;
   position: absolute;
@@ -250,6 +259,17 @@ header .container {
   margin: 5rem auto var(--section-spacing);
 }
 
+.social1-text {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr;
+  margin-bottom: 5rem;
+}
+
+.social1-text p {
+  align-self: flex-end;
+  padding: 1rem;
+}
+
 .social1 h2,
 .social1 p {
   margin-bottom: 2rem;
@@ -257,7 +277,10 @@ header .container {
 
 .social1-content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
+  grid-template-columns: if(
+    media(width < 1200px): repeat(auto-fill, minmax(200px, 1fr)) ;
+      else: repeat(4, minmax(200px, 1fr))
+  );
   gap: 2rem;
 }
 
@@ -275,8 +298,8 @@ header .container {
 .social1-content picture,
 .social1-content img {
   width: 100%;
+  height: 100%;
   position: relative;
-  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -296,6 +319,7 @@ header .container {
 }
 
 .social1-content-image-container {
+  height: 100%;
   display: grid;
   grid-template-areas: "same";
   place-items: center;
@@ -311,16 +335,13 @@ header .container {
 }
 
 .card-inner .icon {
-  width: 10vw;
+  width: clamp(40px, 5vw, 70px);
   position: relative;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 }
 
-.card-inner .icon::after {
-  content: "";
-  position: absolute;
-  top: 42px;
-  left: 0;
+.line {
+  margin-bottom: 5rem;
   width: 100%;
   height: 2px;
   background-color: var(--primary-color);
@@ -336,18 +357,21 @@ header .container {
   margin-bottom: 2rem;
 }
 
+.pain-image {
+  display: grid;
+  grid-template-columns: if(
+    media(width < 950px): repeat(auto-fill, minmax(250px, 1fr)) ;
+      else: repeat(3, minmax(250px, 1fr))
+  );
+  gap: 2rem;
+}
+
 .pain-image picture,
 .pain-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   aspect-ratio: 1/1.08;
-}
-
-.pain-image {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
-  gap: 2rem;
 }
 
 .pain-image-item {
@@ -401,7 +425,10 @@ header .container {
 
 .social2-numbers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: if(
+    media(width < 920px): repeat(auto-fill, minmax(150px, 1fr)) ;
+      else: repeat(4, minmax(150px, 1fr))
+  );
   gap: 2rem;
   text-align: center;
 }
@@ -416,15 +443,44 @@ header .container {
   margin-bottom: var(--section-spacing);
 }
 
-.value-text h2,
-.value-text p {
+.value-wrapper {
+  position: relative;
+}
+
+.value-text h2 {
   margin-bottom: 2rem;
+}
+
+.value-text p {
+  margin-bottom: if(media(width < 768px): 2rem; else: 10rem);
+}
+
+.divider {
+  display: if(media(width < 768px): none; else: block);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 100%;
+  background-color: var(--primary-color);
 }
 
 .value-image {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: if(
+    media(width < 768px): repeat(auto-fill, minmax(300px, 1fr)) ; else: 30vw
+  );
+  place-content: center;
   gap: 2rem;
+}
+
+.val-lft {
+  transform: if(media(width > 768px): translateX(-30%) ; else: translateX(0));
+}
+
+.val-right {
+  transform: if(media(width > 768px): translateX(30%) ; else: translateX(0));
 }
 
 .value-image picture,
@@ -485,11 +541,10 @@ header .container {
 .social3-item {
   display: flex;
   gap: 5rem;
-  padding-right: 5rem;
 }
 
 .social3-item img {
-  width: 15vw;
+  width: clamp(20px, 5vw, 40px);
 }
 
 .spin-left {
@@ -596,12 +651,36 @@ header .container {
 /* LAST */
 .last {
   margin-bottom: var(--section-spacing);
+}
+
+.last .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: if(
+    media(width < 1000px): repeat(auto-fill, minmax(350px, 1fr)) ;
+      else: repeat(2, minmax(200px, 1fr))
+  );
+  gap: 5rem;
 }
 
 .last-content {
   margin-bottom: 5rem;
+}
+
+.last-content-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-areas: "last-overlay";
+}
+
+.last-content-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #00000000 0%, #000 100%);
 }
 
 .last-content h2,
@@ -610,7 +689,26 @@ header .container {
   margin-bottom: 2rem;
 }
 
-.last-content video {
+.last-content-wrapper p,
+.last-content-wrapper video {
+  grid-area: last-overlay;
+}
+
+.last-content-wrapper video {
+  width: 100%;
+  height: 100%;
+}
+
+.last-content-wrapper p {
+  position: relative;
+  z-index: 10;
+  padding: 3rem;
+  justify-self: center;
+  align-self: flex-end;
+  color: var(--white);
+}
+
+.last-form {
   width: 100%;
 }
 
