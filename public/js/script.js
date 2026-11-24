@@ -16,14 +16,24 @@ let split = SplitText.create(".split", {
   },
 });
 
-gsap.to(".animate", {
-  scrollTrigger: {
-    target: ".animate",
-    start: "top top",
-    end: "bottom bottom",
+SplitText.create(".animate", {
+  type: "lines, words",
+  mask: "lines",
+  autoSplit: true,
+  onSplit(self) {
+    return gsap.from(self.words, {
+      duration: 1,
+      x: 100,
+      autoAlpha: 0,
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: ".animate",
+        start: "top bottom",
+        end: "+=100px",
+      },
+    });
   },
 });
-
 const setUpPage = () => {
   document.getElementById("menu").addEventListener("click", () => {
     document.getElementById("nav-links").classList.toggle("isOpen");
