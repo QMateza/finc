@@ -266,7 +266,7 @@ header .container {
 
 .social1-text {
   display: grid;
-  grid-template-columns: 2fr 0.8fr;
+  grid-template-columns: if(media(width > 768px): 2fr 0.8fr; else: 1fr);
   margin-bottom: 5rem;
 }
 
@@ -343,13 +343,14 @@ header .container {
   width: clamp(40px, 5vw, 70px);
   position: relative;
   margin-bottom: 1rem;
+  fill: var(--primary-color);
 }
 
 .line {
   margin-bottom: 5rem;
   width: 100%;
   height: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--jet-black);
 }
 
 /* PAIN */
