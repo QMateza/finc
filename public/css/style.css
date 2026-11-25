@@ -441,7 +441,7 @@ header .container {
 }
 
 .bold {
-  font-size: var(--text-h1);
+  font-size: clamp(3rem, 5vw, 7rem);
   font-weight: var(--font-weight-bold);
 }
 
@@ -476,7 +476,9 @@ header .container {
 .value-image {
   display: grid;
   grid-template-columns: if(
-    media(width < 768px): repeat(auto-fill, minmax(300px, 1fr)) ; else: 30vw
+    media(width < 400): repeat(auto-fill, minmax(200px, 1fr)) ;
+      media(width < 768px): repeat(auto-fill, minmax(300px, 0.2fr)) ;
+      else: clamp(300px, 30vw, 500px)
   );
   place-content: center;
   gap: 2rem;
