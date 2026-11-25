@@ -58,7 +58,9 @@ document.querySelectorAll(".fade-up-group").forEach((group) => {
 
 if (window.innerWidth > 768) {
   document.querySelectorAll(".value-image-item").forEach((element) => {
-    const xOffset = element.classList.contains("val-lft") ? -200 : 200;
+    const xOffset = element.classList.contains("val-lft")
+      ? -200 - Math.floor(window.innerWidth / 50)
+      : 200 + Math.floor(window.innerWidth / 50);
 
     gsap.fromTo(
       element,
