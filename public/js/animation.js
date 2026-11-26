@@ -16,6 +16,21 @@ let split = SplitText.create(".split", {
   },
 });
 
+gsap.fromTo(
+  ".hero-image",
+  {
+    y: 0,
+  },
+  {
+    y: 100,
+    scrollTrigger: {
+      trigger: ".hero-image",
+      start: "center center",
+      scrub: true,
+    },
+  },
+);
+
 let animate = SplitText.create(".animate", {
   type: "lines, words",
   mask: "lines",
@@ -34,6 +49,7 @@ let animate = SplitText.create(".animate", {
     });
   },
 });
+
 let count = 0;
 
 document.querySelectorAll(".fade-up-group").forEach((group) => {
@@ -47,7 +63,7 @@ document.querySelectorAll(".fade-up-group").forEach((group) => {
     {
       y: 0,
       opacity: 1,
-      stagger: 0.2,
+      stagger: 0.05,
       ease: "power2.out",
       scrollTrigger: {
         trigger: items,
@@ -73,7 +89,7 @@ if (window.innerWidth > 768) {
         opacity: 1,
         x: xOffset,
         scale: 1,
-        ease: "power1.inOut",
+        ease: "none",
         scrollTrigger: {
           scrub: 0.5,
           trigger: element,

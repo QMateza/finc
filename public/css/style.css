@@ -420,6 +420,12 @@ header .container {
   margin-bottom: 3rem;
 }
 
+.social2-container {
+  display: grid;
+  grid-template-columns: if(media(width > 768px): 1fr 1fr; else: 1fr);
+  gap: 3rem;
+}
+
 .social2-content h2,
 .social2-content p {
   margin-bottom: 2rem;
@@ -432,8 +438,7 @@ header .container {
 .social2-numbers {
   display: grid;
   grid-template-columns: if(
-    media(width < 542px): repeat(auto-fill, minmax(150px, 1fr)) ;
-      media(width > 768px): repeat(4, minmax(150px, 1fr)) ;
+    media(width < 542px): repeat(auto-fill, minmax(180px, 1fr)) ;
       else: repeat(2, minmax(150px, 1fr))
   );
   gap: 2rem;
