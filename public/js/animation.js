@@ -5,16 +5,27 @@ gsap.registerPlugin(ScrollTrigger);
 let split = SplitText.create(".split", {
   type: "lines, words",
   mask: "lines",
-  autoSplit: true,
-  onSplit(self) {
-    return gsap.from(self.words, {
+});
+
+const tl = gsap.timeline({
+duration: 1,
+
+})
+
+tl.from(".logo", {
+  y: -50,
+  opacity: 0,
+})
+    .from(".menu", {
+      y: -50,
+      opacity: 0
+    }, "-=0.08")
+    .from(split.words, {
       duration: 1,
       y: 100,
       autoAlpha: 0,
       stagger: 0.05,
-    });
-  },
-});
+    }, "-=0.6");
 
 gsap.fromTo(
   ".hero-image",
@@ -30,25 +41,6 @@ gsap.fromTo(
     },
   },
 );
-
-let animate = SplitText.create(".animate", {
-  type: "lines, words",
-  mask: "lines",
-  autoSplit: true,
-  onSplit(self) {
-    return gsap.from(self.words, {
-      duration: 1,
-      x: 100,
-      autoAlpha: 0,
-      stagger: 0.05,
-      scrollTrigger: {
-        trigger: ".animate",
-        start: "top bottom",
-        end: "bottom bottom",
-      },
-    });
-  },
-});
 
 let count = 0;
 
@@ -120,3 +112,20 @@ document
       },
     });
   });
+
+const ctaArr = document.querySelectorAll(".cta")
+
+    const hoverAnim = gsap.to(".cta", {
+        duration: .4,
+        backgroundColor: "#903349",
+        scale: 0.995,
+        ease: "power3.in",
+        paused: true
+    })
+
+ctaArr.forEach(cta => {
+    cta.addEventListener("mouseenter", () => (hoverAnim.play()));
+    cta.addEventListener("mouseleave", () => (hoverAnim.reverse()));
+})
+
+
