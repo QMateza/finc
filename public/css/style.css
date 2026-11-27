@@ -468,6 +468,7 @@ header .container {
     media(width < 542px): repeat(auto-fill, minmax(180px, 1fr));
             else: repeat(2, minmax(150px, 1fr))
   );
+    align-items: center;
     gap: 2rem;
     text-align: center;
 }
@@ -780,6 +781,11 @@ header .container {
 
 .last-form button {
     border: none;
+}
+
+.err-message {
+    margin-top: 1rem;
+    color: #FF0000FF;
 }
 
 @keyframes spin-left {

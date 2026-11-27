@@ -803,20 +803,22 @@
         <h2>Keep in touch</h2>
         <form action="" method="get">
           <div>
-            <label for="name">Name</label>
+            <label for="name">Name*</label>
             <input type="text" name="name" id="name" placeholder="Enter name" />
+            <p class="err-message name-err"></p>
           </div>
           <div>
-            <label for="surname">Surname</label>
+            <label for="surname">Surname*</label>
             <input
               type="text"
               name="surname"
               id="surname"
               placeholder="Enter surname"
             />
+            <p class="err-message surname-err"></p>
           </div>
           <div>
-            <label for="email">Email</label>
+            <label for="email">Email*</label>
             <input
               type="text"
               name="email"
@@ -825,29 +827,32 @@
             />
           </div>
           <div>
-            <label for="phone">Phone</label>
+            <label for="phone">Phone*</label>
             <input
               type="text"
               name="phone"
               id="phone"
               placeholder="Enter phone"
             />
+            <p class="err-message phone-err"></p>
           </div>
           <div>
             <label for="subject">Subject</label>
-            <select name="subject" id="">
-              <option value="">select</option>
-              <option value="">World</option>
-              <option value="">Hello</option>
+            <select name="subject" id="subject" >
+              <option value="none">select</option>
+              <option value="world">World</option>
+              <option value="hello">Hello</option>
             </select>
+            <p class="err-message subject-err"></p>
           </div>
           <div>
             <textarea
               name=""
-              id=""
+              id="message"
               rows="10"
               placeholder="Enter message"
             ></textarea>
+            <p class="err-message message-err"></p>
           </div>
           <button class="cta" type="submit">Submit</button>
         </form>
